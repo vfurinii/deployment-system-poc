@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    environment {
+        KUBECONFIG = "/root/.kube/config"
+    }
+    stages {
+        stage('Build') {
+            steps {
+                dir('app') {
+                    sh 'mvn clean package -DskipTests=false'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                dir('app') {
+                    sh 'mvn test'
+                }
+            }
+        }
+        stage('Build Docker') {
+            steps {
+                sh 'docker build -t myapp:latest ./app'
+            }
+        }
+        stage('Helm Deploy') {
+            steps {
+                sh 'helm upgrade --install myapp ./charts/myapp --namespace apps --create-namespace'
+            }
+        }
+    }
+    post {
+        failure {
+            echo "Pipeline falhou. Corrija os testes ou o deploy."
+        }
+    }
+}
