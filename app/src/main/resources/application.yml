@@ -10,3 +10,9 @@ management:
     export:
       prometheus:
         enabled: true
+server:
+  port: 8080
+
+spring:
+  application:
+    name: deployment-system
