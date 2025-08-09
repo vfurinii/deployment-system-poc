@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/deployment-system.iml" filepath="$PROJECT_DIR$/.idea/deployment-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/deployment-system.iml" filepath="$PROJECT_DIR$/app/deployment-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/deployment-system-poc.iml" filepath="$PROJECT_DIR$/.idea/deployment-system-poc.iml" />
     </modules>
   </component>
 </project>
